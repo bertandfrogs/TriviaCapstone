@@ -9,11 +9,17 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { GameSetupComponent } from './game-setup/game-setup.component';
+import { GameComponent } from './game/game.component';
+import { UserDataComponent } from './user-data/user-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    GameSetupComponent,
+    GameComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,
