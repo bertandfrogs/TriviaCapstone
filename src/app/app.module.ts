@@ -12,6 +12,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { GameSetupComponent } from './game-setup/game-setup.component';
 import { GameComponent } from './game/game.component';
 import { UserDataComponent } from './user-data/user-data.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { UserDataComponent } from './user-data/user-data.component';
     AppRoutingModule,
     AngularFireModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
