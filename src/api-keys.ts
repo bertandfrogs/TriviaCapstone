@@ -5,6 +5,6 @@ export const APIKeys = {
     databaseURL: 'https://triviacapstone.firebaseio.com',
     projectId: 'triviacapstone',
     storageBucket: 'triviacapstone.appspot.com',
-    messagingSenderId: ''
+    messagingSenderId: "258522957762"
   }
 };
