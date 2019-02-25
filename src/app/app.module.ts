@@ -9,18 +9,26 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { GameSetupComponent } from './game-setup/game-setup.component';
+import { GameComponent } from './game/game.component';
+import { UserDataComponent } from './user-data/user-data.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    GameSetupComponent,
+    GameComponent,
+    UserDataComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule,
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
