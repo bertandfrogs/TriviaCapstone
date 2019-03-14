@@ -13,6 +13,8 @@ import { GameSetupComponent } from './game-setup/game-setup.component';
 import { GameComponent } from './game/game.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatButtonModule, MatCardModule, MatSelectModule, MatToolbarModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,12 @@ import {HttpClientModule} from '@angular/common/http';
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

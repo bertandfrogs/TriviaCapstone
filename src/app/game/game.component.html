@@ -1,1 +1,6 @@
-<button (click)="getData()">Get Data</button>
+<div>
+    <ul *ngFor="let question of data?.results">
+      <li>{{ question.question }}</li>
+      <li>{{ (question.incorrect_answers).join(', ') }}, {{ question.correct_answer }}</li>
+    </ul>
+</div>
