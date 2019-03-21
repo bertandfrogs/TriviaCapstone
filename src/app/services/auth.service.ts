@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   loggedIn: boolean = false;
-  userName: '';
+  userName: string = '';
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
   signInPopupGoogle() {

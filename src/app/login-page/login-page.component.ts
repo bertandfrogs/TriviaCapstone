@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   loginWithGoogle() {
     this.authService.signInPopupGoogle()
       .then(data => {
-        this.authService.playerName = data.user.displayName;
+        this.authService.userName = data.user.displayName;
         this.authService.loggedIn = true;
       });
   }
