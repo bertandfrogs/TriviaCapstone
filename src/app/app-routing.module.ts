@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'data',
     component: UserDataComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 
