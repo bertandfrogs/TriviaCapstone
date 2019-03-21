@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService} from "../services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login-page',
@@ -8,7 +9,7 @@ import { AuthService} from "../services/auth.service";
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -16,8 +17,8 @@ export class LoginPageComponent implements OnInit {
   loginWithGoogle() {
     this.authService.signInPopupGoogle()
       .then(data => {
-        this.authService.userName = data.user.displayName;
-        this.authService.loggedIn = true;
+        this.authService.saveUserData(data.user.displayName);
+        this.router.navigate(['game-setup']);
       });
   }
 
