@@ -8,11 +8,16 @@ import { auth } from 'firebase/app';
 })
 export class AuthService {
   loggedIn: boolean = false;
-  userName: string = '';
+  userName: string = 'Default Dan';
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
   signInPopupGoogle() {
     return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+
+  saveUserData(user){
+    this.userName = user;
+    this.loggedIn = true;
   }
 
   signOut() {
