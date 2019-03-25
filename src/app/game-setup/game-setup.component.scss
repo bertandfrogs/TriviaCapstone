@@ -1,0 +1,52 @@
+.formElements-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .mat-form-field-wrapper {
+    padding: 0;
+    margin: 0;
+  }
+
+}
+
+.formElements-bottom{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .playerSelect{
+    min-width: 200px;
+    max-width: 600px;
+    margin: 5%;
+    width: 15%;
+  }
+  .questionNum{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin: 5%;
+    min-width: 200px;
+    max-width: 600px;
+    width: 15%;
+  }
+  .difficulty{
+    margin: 5%;
+    min-width: 200px;
+    max-width: 600px;
+    width: 15%;
+  }
+  .category{
+    margin: 5%;
+    min-width: 200px;
+    max-width: 600px;
+    width: 15%;
+  }
+}
+
+.submitButton{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+

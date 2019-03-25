@@ -3,6 +3,8 @@
   <div class='toolbarLink' [routerLink]="['/game-setup']"><a>New Game</a></div>
   <div class='toolbarLink' [routerLink]="['/game']"><a>Game</a></div>
   <div class='toolbarLink' [routerLink]="['/data']"><a>Profile</a></div>
+  <div class="fillSpace"></div>
+  <div>{{this.authService.welcomeMessage}}</div>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
