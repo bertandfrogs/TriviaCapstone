@@ -15,6 +15,7 @@ import { GameComponent } from './game/game.component';
 import { UserDataComponent } from './user-data/user-data.component';
 import {HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
   MatButtonModule,
   MatCardModule,
@@ -28,7 +29,6 @@ import {
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
-// import { HtmlEntities } from '/html-entities'
 
 @NgModule({
   declarations: [

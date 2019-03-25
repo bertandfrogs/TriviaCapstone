@@ -18,8 +18,8 @@ export class LoginPageComponent implements OnInit {
     this.authService.signInPopupGoogle()
       .then(data => {
         this.authService.saveUserData(data.user.displayName);
-        this.router.navigate(['game-setup']);
       });
+    this.router.navigate(['game-setup']);
   }
 
 }
