@@ -14,8 +14,8 @@ export class LoginPageComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginWithGoogle() {
-    this.authService.signInPopupGoogle()
+  async loginWithGoogle() {
+    await this.authService.signInPopupGoogle()
       .then(data => {
         this.authService.saveUserData(data.user.displayName);
       });
