@@ -3,9 +3,11 @@
 
 .page-container{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 750px;
+  height: 100vh;
+  background: #34ADFF -webkit-linear-gradient(120deg, #3F51B5 35%, #38f2ff 80%);
 }
 .login-card{
   display: flex;
@@ -14,4 +16,13 @@
 .login-button{
   margin-top: 15px;
   justify-self: center;
+}
+.login-title{
+  margin-bottom: 75px;
+}
+
+@media only screen and (max-width: 500px) {
+  .login-title{
+    font-size: 32px;
+  }
 }
