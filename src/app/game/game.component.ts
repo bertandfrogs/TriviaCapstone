@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service'
 import { Data } from '../services/data';
+// import { AllHtmlEntities } from '/node_modules/html-entities'
 
 @Component({
   selector: 'app-game',
@@ -15,6 +16,7 @@ export class GameComponent implements OnInit {
   allAnswers = [];
 
 
+
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
@@ -25,22 +27,25 @@ export class GameComponent implements OnInit {
   }
 
   getData(){
+
     this.apiService.getData('').subscribe(data => {
       this.data = data; // he.decode
 
       for(let i = 0; i < 10; i++) {
-        this.questions.push((data.results[i].question));
-        this.correctAnswers.push((data.results[i].correct_answer));
-        this.incorrectAnswers.push(data.results[i].incorrect_answers);
+        this.questions.push(decodeHtml(data.results[i].question));
+
+        this.correctAnswers.push(decodeHtml(data.results[i].correct_answer));
+        this.incorrectAnswers.push((data.results[i].incorrect_answers));
+
         if(this.correctAnswers[i] === "True" || this.correctAnswers[i] === "False" ) {
           let join = [{question: this.correctAnswers[i], isCorrect: true}, {question: this.incorrectAnswers[i][0], isCorrect: false}];
           this.allAnswers.push(join);
         }
         else{
           let join = [{question: this.correctAnswers[i], isCorrect: true}, {
-            question: (this.incorrectAnswers[i][0]),
+            question: decodeHtml(this.incorrectAnswers[i][0]),
             isCorrect: false
-          }, {question: (this.incorrectAnswers[i][1]), isCorrect: false}, {question: (this.incorrectAnswers[i][2]), isCorrect: false}];
+          }, {question: decodeHtml(this.incorrectAnswers[i][1]), isCorrect: false}, {question: decodeHtml(this.incorrectAnswers[i][2]), isCorrect: false}];
           this.allAnswers.push(join);
         }
       }
@@ -49,6 +54,12 @@ export class GameComponent implements OnInit {
         console.log(this.allAnswers);
       }
     });
+
+    function decodeHtml(html) {
+      let txt = document.createElement("textarea");
+      txt.innerHTML = html;
+      return txt.value;
+    }
   }
 
   randomize(ary){
