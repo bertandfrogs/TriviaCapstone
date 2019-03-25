@@ -9,6 +9,7 @@ import { auth } from 'firebase/app';
 export class AuthService {
   loggedIn: boolean = false;
   userName: string = 'Default Dan';
+  welcomeMessage: string = "";
   constructor(public afAuth: AngularFireAuth, private router: Router) {}
 
   signInPopupGoogle() {
@@ -18,6 +19,7 @@ export class AuthService {
   saveUserData(user){
     this.userName = user;
     this.loggedIn = true;
+    this.welcomeMessage = "Welcome, " + this.userName;
   }
 
   signOut() {

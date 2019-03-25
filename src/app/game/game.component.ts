@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service'
 import { Data } from '../services/data';
+import { AuthService } from '../services/auth.service';
 // import { AllHtmlEntities } from '/node_modules/html-entities'
 
 @Component({
@@ -15,15 +16,13 @@ export class GameComponent implements OnInit {
   incorrectAnswers = [];
   allAnswers = [];
 
-
-
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private authService: AuthService) { }
 
   ngOnInit() {
     this.getData();
-    // console.log(this.questions);
-    // console.log(this.correctAnswers);
-    // console.log(this.incorrectAnswers);
+    if(this.authService.welcomeMessage !== "Please Login"){
+      this.authService.welcomeMessage = "Welcome, " + this.authService.userName;
+    }
   }
 
   getData(){
