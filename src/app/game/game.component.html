@@ -1,1 +1,8 @@
-<button (click)="getData()">Get Data</button>
+<div class="gameWrapper">
+    <mat-card *ngFor="let question of questions; let i = index" [attr.data-index]="i" class="questions">
+      <div class="questions">{{question}}</div>
+      <div *ngFor="let answer of allAnswers[i]; let a = index" [attr.data-index]="a" class="answers">
+        <button mat-button class="answerButton">{{answer.question}}</button>
+      </div>
+    </mat-card>
+</div>

@@ -15,6 +15,10 @@ const routes: Routes = [
     component: GameSetupComponent
   },
   {
+    path: '',
+    component: LoginPageComponent
+  },
+  {
     path: 'login',
     component: LoginPageComponent
   },

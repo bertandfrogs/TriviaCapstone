@@ -10,7 +10,7 @@ export class ApiService {
   private testUrl = "https://opentdb.com/api.php?amount=10";
   constructor(private httpClient: HttpClient) { }
 
-  getData(): Observable<Data>{
+  getData(settings): Observable<Data>{
     return this.httpClient.get<Data>(this.testUrl, {});
   }
 
