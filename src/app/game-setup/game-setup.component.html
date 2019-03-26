@@ -1,15 +1,10 @@
 <div class="page-container">
-  <div name="setup">
+  <div class="setup">
     <mat-card>
-      <div>
-        <div class="formElements-top">
-
-        </div>
-      </div>
       <div class="formElements-bottom">
         <div class="playerSelect">
           <p>Number Of Players</p>
-          <mat-select placeholder='1' value='1'>
+          <mat-select (selectionChange)="playerNumber($event)" placeholder="1" value="1">
             <mat-option value='1'>1</mat-option>
             <mat-option value='2'>2</mat-option>
             <mat-option value='3'>3</mat-option>
@@ -18,7 +13,7 @@
         </div>
         <div class="questionNum">
           <p>Questions per Player</p>
-          <mat-select placeholder="2" value="2">
+          <mat-select (selectionChange)="questionsPerPlayer($event)" placeholder="10" value="10">
             <mat-option value="2">2</mat-option>
             <mat-option value="4">4</mat-option>
             <mat-option value="6">6</mat-option>
@@ -28,16 +23,16 @@
         </div>
         <div class="difficulty">
           <p>Difficulty</p>
-          <mat-select placeholder="Any Difficulty" value="Any">
+          <mat-select (selectionChange)="difficulty($event)" placeholder="Any" value="Any">
             <mat-option value="Any">Any</mat-option>
-            <mat-option value="Easy">Easy</mat-option>
-            <mat-option value="Medium">Medium</mat-option>
-            <mat-option value="Hard">Hard</mat-option>
+            <mat-option value="easy">Easy</mat-option>
+            <mat-option value="medium">Medium</mat-option>
+            <mat-option value="hard">Hard</mat-option>
           </mat-select>
         </div>
         <div class="category">
           <p>Category</p>
-          <mat-select placeholder="Any" value="Any">
+          <mat-select (selectionChange)="category($event)" placeholder="Any" value="Any">
             <mat-option value="Any">Any</mat-option>
             <mat-option value="9">General Knowledge</mat-option>
             <mat-option value="10">Entertainment: Books</mat-option>
@@ -66,8 +61,8 @@
           </mat-select>
         </div>
       </div>
-      <div class="submitButton">
-        <button mat-raised-button>Start Game</button>
+      <div class="submitButton" (click)="submitData()" [routerLink]="['/game']">
+        <button mat-raised-button type="submit">Start Game</button>
       </div>
     </mat-card>
   </div>

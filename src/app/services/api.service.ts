@@ -8,10 +8,18 @@ import {Data} from './data';
 })
 export class ApiService {
   private testUrl = "https://opentdb.com/api.php?amount=10";
+  url: string;
+
   constructor(private httpClient: HttpClient) { }
 
-  getData(settings): Observable<Data>{
-    return this.httpClient.get<Data>(this.testUrl, {});
+  setData(url){
+    console.log("this is the api service");
+    this.url = url;
+    console.log(this.url);
+  }
+
+  getData(): Observable<Data>{
+    return this.httpClient.get<Data>(this.url, {});
   }
 
   //category goes from category=9 to category=32
