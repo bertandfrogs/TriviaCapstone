@@ -9,6 +9,19 @@
 
 }
 
+.page-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 93.5vh;
+  overflow: hidden;
+  background: #34ADFF -webkit-linear-gradient(45deg, #6c39b5 30%, #38f2ff 80%);
+}
+
+.setup{
+  width: 80vw;
+}
+
 .formElements-bottom{
   display: flex;
   flex-wrap: wrap;

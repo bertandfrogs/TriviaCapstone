@@ -1,4 +1,4 @@
-<mat-toolbar *ngIf="this.authService.loggedIn" color="primary">
+<mat-toolbar class="hide-overflow" *ngIf="this.authService.loggedIn" color="primary">
   <div class='toolbarLink' [routerLink]="['/game-setup']"><a>New Game</a></div>
   <div class='toolbarLink' [routerLink]="['/data']"><a>Profile</a></div>
   <div class='toolbarLink' [routerLink]="['/login']"><a>Sign Out</a></div>
