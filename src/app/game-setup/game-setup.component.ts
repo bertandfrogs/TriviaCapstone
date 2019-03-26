@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService} from "../services/auth.service";
 import { DatabaseService } from '../services/database.service';
 import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-setup',
@@ -12,10 +13,15 @@ export class GameSetupComponent implements OnInit {
 
   data = [{playerNum: 1}, {numOfQuestions: 10}, {difficulty: "Any"}, {category: "Any"}];
 
-  constructor(private authService: AuthService, private apiService: ApiService) { }
+  constructor(private authService: AuthService, private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
-
+    if(!this.authService.loggedIn){
+      this.router.navigate(['/login']);
+    }
+    else {
+      console.log(this.authService.userName);
+    }
   }
 
   playerNumber(event) {

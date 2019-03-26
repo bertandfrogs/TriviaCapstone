@@ -19,7 +19,7 @@ export class AuthService {
   saveUserData(user){
     this.userName = user;
     this.loggedIn = true;
-    this.welcomeMessage = "Welcome, " + this.userName;
+    this.welcomeMessage = this.userName;
   }
 
   signOut() {

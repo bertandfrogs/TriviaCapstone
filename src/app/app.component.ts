@@ -9,12 +9,16 @@ import {AuthService} from './services/auth.service';
 
 export class AppComponent implements OnInit{
   welcomeMessage = "Please Login";
+  loggedIn = false;
 
   constructor(private authService: AuthService){};
 
   ngOnInit(){
     if(this.authService.welcomeMessage != "Please Login"){
-      this.welcomeMessage = "Welcome, " + this.authService.userName;
+      this.welcomeMessage = this.authService.userName;
+    }
+    if(this.authService.loggedIn === true){
+      this.loggedIn = true;
     }
   }
 }

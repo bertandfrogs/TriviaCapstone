@@ -1,8 +1,7 @@
-<mat-toolbar color="primary">
-  <div class='toolbarLink' [routerLink]="['/login']"><a>Sign In</a></div>
+<mat-toolbar *ngIf="this.authService.loggedIn" color="primary">
   <div class='toolbarLink' [routerLink]="['/game-setup']"><a>New Game</a></div>
-  <!--<div class='toolbarLink' [routerLink]="['/game']"><a>Game</a></div>-->
   <div class='toolbarLink' [routerLink]="['/data']"><a>Profile</a></div>
+  <div class='toolbarLink' [routerLink]="['/login']"><a>Sign Out</a></div>
   <div class="fillSpace"></div>
   <div>{{this.authService.welcomeMessage}}</div>
 </mat-toolbar>
