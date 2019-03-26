@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service'
 import { Data } from '../services/data';
 import { AuthService } from '../services/auth.service';
-// import { AllHtmlEntities } from '/node_modules/html-entities'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -16,21 +16,28 @@ export class GameComponent implements OnInit {
   incorrectAnswers = [];
   allAnswers = [];
 
-  constructor(private apiService: ApiService, private authService: AuthService) { }
+  constructor(private apiService: ApiService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
-    this.getData();
-    if(this.authService.welcomeMessage !== "Please Login"){
-      this.authService.welcomeMessage = "Welcome, " + this.authService.userName;
+    if(!this.authService.loggedIn){
+      this.router.navigate(['/login']);
+      // console.log(this.authService.auth.currentUser);
+    }
+    else{
+      this.getData();
+      if(this.authService.welcomeMessage !== "Please Login"){
+        this.authService.welcomeMessage = "Welcome, " + this.authService.userName;
+      }
     }
   }
 
   getData(){
 
-    this.apiService.getData('').subscribe(data => {
-      this.data = data; // he.decode
+    this.apiService.getData().subscribe(data => {
+      this.data = data;
+      console.log(data);
 
-      for(let i = 0; i < 10; i++) {
+      for(let i = 0; i < data.results.length; i++) {
         this.questions.push(decodeHtml(data.results[i].question));
 
         this.correctAnswers.push(decodeHtml(data.results[i].correct_answer));
@@ -48,7 +55,7 @@ export class GameComponent implements OnInit {
           this.allAnswers.push(join);
         }
       }
-      if(this.allAnswers.length==10){
+      if(this.allAnswers.length===this.data.results.length){
         this.randomize(this.allAnswers);
         console.log(this.allAnswers);
       }
@@ -62,8 +69,6 @@ export class GameComponent implements OnInit {
   }
 
   randomize(ary){
-    console.log(ary);
-    console.log("begin randomize function.");
 
     let array = ary;
     console.log(array);
