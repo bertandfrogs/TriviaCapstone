@@ -29,6 +29,7 @@ import {
   MatTableModule,
   MatToolbarModule
 } from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTableModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

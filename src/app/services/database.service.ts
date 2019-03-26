@@ -6,12 +6,8 @@ import { AngularFirestore } from 'angularfire2/firestore';
 })
 export class DatabaseService {
 
-  constructor(afs: AngularFirestore) { }
+  data: [{playerNum: number}, {numOfQuestions: number}, {difficulty: string}, {category: string}];
 
-
-
-
-
-
-
+  constructor(afs: AngularFirestore) {
+  }
 }
