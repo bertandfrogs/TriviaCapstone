@@ -11,7 +11,7 @@ export class GameSetupComponent implements OnInit {
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    console.log(this.authService.userName)
+
   }
 
 }
