@@ -21,12 +21,11 @@ export class GameComponent implements OnInit {
   ngOnInit() {
     if(!this.authService.loggedIn){
       this.router.navigate(['/login']);
-      // console.log(this.authService.auth.currentUser);
     }
     else{
       this.getData();
       if(this.authService.welcomeMessage !== "Please Login"){
-        this.authService.welcomeMessage = "Welcome, " + this.authService.userName;
+        this.authService.welcomeMessage = this.authService.userName;
       }
     }
   }
