@@ -1,16 +1,31 @@
-.toolbarLink{
-  text-decoration-color: #ffffff;
-  margin-right: 3%;
-  outline: 0;
-}
-
-.toolbarLink:hover{
-  color: lightgray;
-  cursor: pointer;
-}
-
 .fillSpace {
   flex: 1 1 auto;
+}
+
+.customToolbar{
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  font-family: Roboto;
+  font-size: 100%;
+  background-color: #333333;
+
+  .toolbarLink, .toolbarName{
+    color: #ffffff;
+    padding: 1%;
+    margin: 2%;
+    outline: 0;
+    font-size: 110%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .toolbarLink:hover{
+     color: lightgray;
+     cursor: pointer;
+   }
 }
 
 .hide-overflow{

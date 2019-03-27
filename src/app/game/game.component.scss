@@ -1,7 +1,17 @@
-.gameWrapper {
-
-  overflow: visible;
+.page-container {
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  //align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #34ADFF -webkit-linear-gradient(45deg, #6c39b5 30%, #38f2ff 80%);
+
+  mat-card{
+    width: 80%;
+    height: fit-content;
+    padding: 2%;
+  }
 
   .question {
     margin: 10px;
