@@ -42,7 +42,6 @@ export class GameComponent implements OnInit {
 
     this.apiService.getData().subscribe(data => {
       this.data = data;
-      console.log(data);
 
       for(let i = 0; i < data.results.length; i++) {
         this.questions.push(decodeHtml(data.results[i].question));
@@ -64,7 +63,6 @@ export class GameComponent implements OnInit {
       }
       if(this.allAnswers.length===this.data.results.length){
         this.randomize(this.allAnswers);
-        console.log(this.allAnswers);
       }
     });
 
@@ -84,8 +82,6 @@ export class GameComponent implements OnInit {
   randomize(ary){
 
     let array = ary;
-    console.log(array);
-
     let temp;
     let rand;
 
@@ -119,7 +115,6 @@ export class GameComponent implements OnInit {
   }
 
   nextQuestion(currentQ, answer){
-    console.log("Completed question " + this.currentQuestion + " out of " + this.questions.length);
     if(this.currentQuestion < this.questions.length -1){
       this.currentQuestion++;
     }
@@ -135,7 +130,6 @@ export class GameComponent implements OnInit {
     else{
       this.currentPlayer = 0;
     }
-    console.log('score: ' + this.playerScores);
     this.fetchQuestion();
   }
 

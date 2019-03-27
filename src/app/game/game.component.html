@@ -1,12 +1,4 @@
-<div class="gameWrapper">
-  <!--<mat-card *ngFor="let question of questions; let i = index" [attr.data-index]="i" class="questions">-->
-    <!--<div class="questions">{{question}}</div>-->
-    <!--<div class="answers">-->
-      <!--<div *ngFor="let answer of allAnswers[i]; let a = index" [attr.data-index]="a" class="answer">-->
-        <!--<button mat-button class="answerButton">{{answer.question}}</button>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</mat-card>-->
+<div class="page-container">
   <mat-card *ngIf="gameOver === false" class="questions">
     <p *ngIf="numPlayers > 1">Player {{currentPlayer + 1}}'s turn</p>
     <div class="question">{{questions[currentQuestion]}}</div>
@@ -19,7 +11,8 @@
 
   <mat-card *ngIf="gameOver === true" class="results">
     <h3>Results</h3>
-    <p *ngFor="let player of playerScores; let i = index;">Player {{i + 1}} got {{playerScores[i]}} right out of
+    <p *ngFor="let player of playerScores; let i = index;">Player {{i + 1}} got {{playerScores[i]}} questions right
+      out of
       {{dataService.data[1].numOfQuestions}}.</p>
   </mat-card>
 </div>
