@@ -19,6 +19,7 @@ export class GameComponent implements OnInit {
   allAnswers = [];
   currentQuestion = 0;
   currentAnswers = [];
+  numPlayers;
   currentPlayer = 0;
   playerScores = [];
   gameOver = false;
@@ -73,8 +74,8 @@ export class GameComponent implements OnInit {
       return txt.value;
     }
 
-    let numPlayers = this.dataService.data[0].playerNum;
-    for(let i = 0; i < numPlayers; i++){
+    this.numPlayers = this.dataService.data[0].playerNum;
+    for(let i = 0; i < this.numPlayers; i++){
       this.playerScores.push(0);
     }
 
@@ -118,7 +119,7 @@ export class GameComponent implements OnInit {
   }
 
   nextQuestion(currentQ, answer){
-    console.log("Question " + this.currentQuestion + " out of " + this.questions.length);
+    console.log("Completed question " + this.currentQuestion + " out of " + this.questions.length);
     if(this.currentQuestion < this.questions.length -1){
       this.currentQuestion++;
     }
@@ -126,7 +127,13 @@ export class GameComponent implements OnInit {
       this.displayResults();
     }
     if(answer.isCorrect === true){
-      // this.playerScores[currentPlayer]++;
+      this.playerScores[this.currentPlayer]++;
+    }
+    if(this.currentPlayer < this.dataService.data[0].playerNum -1){
+      this.currentPlayer++;
+    }
+    else{
+      this.currentPlayer = 0;
     }
     console.log('score: ' + this.playerScores);
     this.fetchQuestion();

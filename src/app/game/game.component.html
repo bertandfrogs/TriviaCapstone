@@ -7,7 +7,8 @@
       <!--</div>-->
     <!--</div>-->
   <!--</mat-card>-->
-  <mat-card *ngIf="gameOver === false" class="questions {{currentPlayer}}">
+  <mat-card *ngIf="gameOver === false" class="questions">
+    <p *ngIf="numPlayers > 1">Player {{currentPlayer + 1}}'s turn</p>
     <div class="question">{{questions[currentQuestion]}}</div>
     <div class="answers">
       <div *ngFor="let answer of currentAnswers" class="answer">
@@ -18,6 +19,7 @@
 
   <mat-card *ngIf="gameOver === true" class="results">
     <h3>Results</h3>
-    <p>You got {{score}} right out of {{questions.length}}.</p>
+    <p *ngFor="let player of playerScores; let i = index;">Player {{i + 1}} got {{playerScores[i]}} right out of
+      {{dataService.data[1].numOfQuestions}}.</p>
   </mat-card>
 </div>
