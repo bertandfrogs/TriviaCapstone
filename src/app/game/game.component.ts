@@ -3,6 +3,8 @@ import { ApiService } from '../services/api.service'
 import { Data } from '../services/data';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import {logger} from '../../../node_modules/codelyzer/util/logger';
+import {DatabaseService} from '../services/database.service';
 
 @Component({
   selector: 'app-game',
@@ -15,8 +17,13 @@ export class GameComponent implements OnInit {
   correctAnswers = [];
   incorrectAnswers = [];
   allAnswers = [];
+  currentQuestion = 0;
+  currentAnswers = [];
+  currentPlayer = 0;
+  playerScores = [];
+  gameOver = false;
 
-  constructor(private apiService: ApiService, private authService: AuthService, private router: Router) { }
+  constructor(private apiService: ApiService, private authService: AuthService, private router: Router, private dataService: DatabaseService) { }
 
   ngOnInit() {
     if(!this.authService.loggedIn){
@@ -65,6 +72,12 @@ export class GameComponent implements OnInit {
       txt.innerHTML = html;
       return txt.value;
     }
+
+    let numPlayers = this.dataService.data[0].playerNum;
+    for(let i = 0; i < numPlayers; i++){
+      this.playerScores.push(0);
+    }
+
   }
 
   randomize(ary){
@@ -97,5 +110,29 @@ export class GameComponent implements OnInit {
         }
       }
     }
+    this.fetchQuestion();
+  }
+
+  fetchQuestion(){
+    this.currentAnswers = this.allAnswers[this.currentQuestion];
+  }
+
+  nextQuestion(currentQ, answer){
+    console.log("Question " + this.currentQuestion + " out of " + this.questions.length);
+    if(this.currentQuestion < this.questions.length -1){
+      this.currentQuestion++;
+    }
+    else{
+      this.displayResults();
+    }
+    if(answer.isCorrect === true){
+      // this.playerScores[currentPlayer]++;
+    }
+    console.log('score: ' + this.playerScores);
+    this.fetchQuestion();
+  }
+
+  displayResults(){
+    this.gameOver = true;
   }
 }

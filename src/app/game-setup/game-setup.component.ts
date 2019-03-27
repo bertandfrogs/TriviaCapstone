@@ -13,7 +13,7 @@ export class GameSetupComponent implements OnInit {
 
   data = [{playerNum: 1}, {numOfQuestions: 10}, {difficulty: "Any"}, {category: "Any"}];
 
-  constructor(private authService: AuthService, private apiService: ApiService, private router: Router) { }
+  constructor(private authService: AuthService, private apiService: ApiService, private router: Router, private dataService: DatabaseService) { }
 
   ngOnInit() {
     if(!this.authService.loggedIn){
@@ -47,6 +47,7 @@ export class GameSetupComponent implements OnInit {
   submitData(){
     console.log(this.data);
     this.createUrl(this.data);
+    this.dataService.saveData(this.data);
   }
 
   createUrl(data){
