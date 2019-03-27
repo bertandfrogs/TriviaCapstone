@@ -8,6 +8,10 @@ export class DatabaseService {
 
   data: [{playerNum: number}, {numOfQuestions: number}, {difficulty: string}, {category: string}];
 
-  constructor(afs: AngularFirestore) {
+  constructor(private afs: AngularFirestore) {
+  }
+
+  saveData(data){
+    this.data = data;
   }
 }
